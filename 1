@@ -1,0 +1,23 @@
+<?php
+// Pizzômetro - Calcula quantas pizzas são necessárias para um evento
+
+echo "=== PIZZÔMETRO ===\n";
+
+echo "Quantos adultos irão à festa? ";
+$adultos = (int)trim(fgets(STDIN));
+
+echo "Quantas crianças irão à festa? ";
+$criancas = (int)trim(fgets(STDIN));
+
+$fatia_por_adulto = 3;
+$fatia_por_crianca = 2;
+$fatia_por_pizza = 8;
+
+// Cálculo total de fatias necessárias
+$fatias = ($adultos * $fatia_por_adulto) + ($criancas * $fatia_por_crianca);
+
+// Quantidade de pizzas (arredondada para cima)
+$pizzas = ceil($fatias / $fatia_por_pizza);
+
+echo "\nVocê precisará de aproximadamente $pizzas pizzas para a festa!\n";
+?>
