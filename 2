@@ -1,0 +1,33 @@
+<?php
+echo "=== JOGO: ADIVINHE O NÚMERO ===\n";
+echo "Você terá 3 rodadas para tentar adivinhar o número entre 1 e 10!\n\n";
+
+$pontuacao = 0; // pontuação inicial
+$rodadas = 3;   // total de rodadas
+
+for ($i = 1; $i <= $rodadas; $i++) {
+    echo "Rodada $i de $rodadas\n";
+    $numeroSorteado = rand(1, 10); // número aleatório
+
+    echo "Digite seu palpite: ";
+    $palpite = (int)trim(fgets(STDIN));
+
+    if ($palpite == $numeroSorteado) {
+        echo " Parabéns! Você acertou!\n";
+        $pontuacao += 10; // 10 pontos por acerto
+    } else {
+        echo " Que pena! O número era $numeroSorteado.\n";
+        $pontuacao -= 2; // perde 2 pontos se errar
+    }
+    echo "Pontuação atual: $pontuacao\n\n";
+}
+echo "=== FIM DO JOGO ===\n";
+echo "Sua pontuação final foi: $pontuacao pontos.\n";
+if ($pontuacao >= 20) {
+    echo "Excelente! Você é muito bom nisso! \n";
+} elseif ($pontuacao >= 10) {
+    echo "Bom trabalho! Quase perfeito! \n";
+} else {
+    echo "Tente novamente para melhorar sua pontuação! \n";
+}
+?>
